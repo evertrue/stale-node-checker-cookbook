@@ -1,0 +1,118 @@
+{
+  "name": "stage-api-search-1b",
+  "chef_environment": "stage",
+  "run_list": [
+    "recipe[et_base]",
+    "recipe[et_search_api]"
+  ],
+  "normal": {
+    "tags": [
+
+    ],
+    "target_domain": "priv.evertrue.com",
+    "target_fqdn": "stage-api-search-1b.priv.evertrue.com"
+  },
+  "override": {
+    "domain": "priv.evertrue.com",
+    "chef_env_long_name": "staging"
+  },
+  "automatic": {
+    "hostname": "stage-api-search-1b",
+    "fqdn": "stage-api-search-1b.priv.evertrue.com",
+    "domain": "priv.evertrue.com",
+    "network": {
+      "interfaces": {
+        "lo": {
+          "mtu": "16436",
+          "flags": [
+            "LOOPBACK",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Loopback",
+          "addresses": {
+            "127.0.0.1": {
+              "family": "inet",
+              "prefixlen": "8",
+              "netmask": "255.0.0.0",
+              "scope": "Node"
+            },
+            "::1": {
+              "family": "inet6",
+              "prefixlen": "128",
+              "scope": "Node"
+            }
+          },
+          "state": "unknown"
+        },
+        "eth0": {
+          "type": "eth",
+          "number": "0",
+          "mtu": "1500",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Ethernet",
+          "addresses": {
+            "12:0A:16:26:98:72": {
+              "family": "lladdr"
+            },
+            "10.0.111.228": {
+              "family": "inet",
+              "prefixlen": "24",
+              "netmask": "255.255.255.0",
+              "broadcast": "10.0.111.255",
+              "scope": "Global"
+            },
+            "fe80::100a:16ff:fe26:9872": {
+              "family": "inet6",
+              "prefixlen": "64",
+              "scope": "Link"
+            }
+          },
+          "state": "up",
+          "arp": {
+            "10.0.111.151": "12:db:26:e1:85:69",
+            "10.0.111.1": "0a:a3:72:40:00:06"
+          },
+          "routes": [
+            {
+              "destination": "default",
+              "family": "inet",
+              "via": "10.0.111.1",
+              "metric": "100"
+            },
+            {
+              "destination": "10.0.111.0/24",
+              "family": "inet",
+              "scope": "link",
+              "proto": "kernel",
+              "src": "10.0.111.228"
+            },
+            {
+              "destination": "fe80::/64",
+              "family": "inet6",
+              "metric": "256",
+              "proto": "kernel"
+            }
+          ]
+        }
+      },
+      "default_interface": "eth0",
+      "default_gateway": "10.0.111.1"
+    },
+    "ipaddress": "10.0.111.228",
+    "macaddress": "12:0A:16:26:98:72",
+    "ip6address": "fe80::100a:16ff:fe26:9872",
+    "recipes": [
+      "et_base",
+      "et_search_api"
+    ],
+    "roles": [
+
+    ]
+  }
+}

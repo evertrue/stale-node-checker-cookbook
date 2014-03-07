@@ -1,0 +1,119 @@
+{
+  "name": "stage-api-importer-1b",
+  "chef_environment": "stage",
+  "run_list": [
+    "recipe[et_base]",
+    "recipe[et_importer_api]"
+  ],
+  "normal": {
+    "tags": [
+
+    ],
+    "target_domain": "priv.evertrue.com",
+    "target_fqdn": "stage-api-importer-1b.priv.evertrue.com"
+  },
+  "override": {
+    "domain": "priv.evertrue.com",
+    "chef_env_long_name": "staging"
+  },
+  "automatic": {
+    "hostname": "stage-api-importer-1b",
+    "fqdn": "stage-api-importer-1b.priv.evertrue.com",
+    "domain": "priv.evertrue.com",
+    "network": {
+      "interfaces": {
+        "lo": {
+          "mtu": "16436",
+          "flags": [
+            "LOOPBACK",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Loopback",
+          "addresses": {
+            "127.0.0.1": {
+              "family": "inet",
+              "prefixlen": "8",
+              "netmask": "255.0.0.0",
+              "scope": "Node"
+            },
+            "::1": {
+              "family": "inet6",
+              "prefixlen": "128",
+              "scope": "Node"
+            }
+          },
+          "state": "unknown"
+        },
+        "eth0": {
+          "type": "eth",
+          "number": "0",
+          "mtu": "1500",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Ethernet",
+          "addresses": {
+            "12:6E:DD:7F:73:83": {
+              "family": "lladdr"
+            },
+            "10.0.111.160": {
+              "family": "inet",
+              "prefixlen": "24",
+              "netmask": "255.255.255.0",
+              "broadcast": "10.0.111.255",
+              "scope": "Global"
+            },
+            "fe80::106e:ddff:fe7f:7383": {
+              "family": "inet6",
+              "prefixlen": "64",
+              "scope": "Link"
+            }
+          },
+          "state": "up",
+          "arp": {
+            "10.0.111.1": "0a:a3:72:40:00:06",
+            "10.0.111.154": "0a:a3:72:4f:45:17",
+            "10.0.111.59": "0a:a3:72:67:1b:c3"
+          },
+          "routes": [
+            {
+              "destination": "default",
+              "family": "inet",
+              "via": "10.0.111.1",
+              "metric": "100"
+            },
+            {
+              "destination": "10.0.111.0/24",
+              "family": "inet",
+              "scope": "link",
+              "proto": "kernel",
+              "src": "10.0.111.160"
+            },
+            {
+              "destination": "fe80::/64",
+              "family": "inet6",
+              "metric": "256",
+              "proto": "kernel"
+            }
+          ]
+        }
+      },
+      "default_interface": "eth0",
+      "default_gateway": "10.0.111.1"
+    },
+    "ipaddress": "10.0.111.160",
+    "macaddress": "12:6E:DD:7F:73:83",
+    "ip6address": "fe80::106e:ddff:fe7f:7383",
+    "recipes": [
+      "et_base",
+      "et_importer_api"
+    ],
+    "roles": [
+
+    ]
+  }
+}

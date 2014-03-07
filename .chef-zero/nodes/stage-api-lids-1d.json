@@ -1,0 +1,170 @@
+{
+  "name": "stage-api-lids-1d",
+  "chef_environment": "stage",
+  "run_list": [
+    "recipe[et_base]",
+    "recipe[et_lids_api]"
+  ],
+  "normal": {
+    "tags": [
+
+    ],
+    "target_domain": "priv.evertrue.com",
+    "target_fqdn": "stage-api-lids-1d.priv.evertrue.com"
+  },
+  "override": {
+    "domain": "priv.evertrue.com",
+    "chef_env_long_name": "staging"
+  },
+  "automatic": {
+    "hostname": "stage-api-lids-1d",
+    "fqdn": "stage-api-lids-1d.priv.evertrue.com",
+    "domain": "priv.evertrue.com",
+    "network": {
+      "interfaces": {
+        "lo": {
+          "mtu": "16436",
+          "flags": [
+            "LOOPBACK",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Loopback",
+          "addresses": {
+            "127.0.0.1": {
+              "family": "inet",
+              "prefixlen": "8",
+              "netmask": "255.0.0.0",
+              "scope": "Node"
+            },
+            "::1": {
+              "family": "inet6",
+              "prefixlen": "128",
+              "scope": "Node"
+            }
+          },
+          "state": "unknown"
+        },
+        "eth0": {
+          "type": "eth",
+          "number": "0",
+          "mtu": "9001",
+          "flags": [
+            "BROADCAST",
+            "MULTICAST",
+            "UP",
+            "LOWER_UP"
+          ],
+          "encapsulation": "Ethernet",
+          "addresses": {
+            "0E:72:D4:DA:40:6F": {
+              "family": "lladdr"
+            },
+            "10.0.113.216": {
+              "family": "inet",
+              "prefixlen": "24",
+              "netmask": "255.255.255.0",
+              "broadcast": "10.0.113.255",
+              "scope": "Global"
+            },
+            "fe80::c72:d4ff:feda:406f": {
+              "family": "inet6",
+              "prefixlen": "64",
+              "scope": "Link"
+            }
+          },
+          "state": "up",
+          "arp": {
+            "10.0.113.173": "0a:a3:72:4d:01:23",
+            "10.0.113.1": "0a:a3:72:40:00:0c"
+          },
+          "routes": [
+            {
+              "destination": "default",
+              "family": "inet",
+              "via": "10.0.113.1",
+              "metric": "100"
+            },
+            {
+              "destination": "10.0.113.0/24",
+              "family": "inet",
+              "scope": "link",
+              "proto": "kernel",
+              "src": "10.0.113.216"
+            },
+            {
+              "destination": "fe80::/64",
+              "family": "inet6",
+              "metric": "256",
+              "proto": "kernel"
+            }
+          ]
+        }
+      },
+      "default_interface": "eth0",
+      "default_gateway": "10.0.113.1"
+    },
+    "ipaddress": "10.0.113.216",
+    "macaddress": "0E:72:D4:DA:40:6F",
+    "ip6address": "fe80::c72:d4ff:feda:406f",
+    "recipes": [
+      "et_base",
+      "et_lids_api",
+      "et_base::default",
+      "cookbook_versions_handler::default",
+      "chef_handler::default",
+      "et_base::nics",
+      "network_interfaces::default",
+      "et_users::root",
+      "et_logger::default",
+      "rsyslog::client",
+      "rsyslog::default",
+      "et_hostname::default",
+      "et_base::handlers",
+      "postfix::default",
+      "postfix::aliases",
+      "et_users::sysadmins",
+      "et_users::reloadohai",
+      "et_users::evertrue",
+      "yum::default",
+      "sudo::default",
+      "git::default",
+      "apt::default",
+      "chef-client::default",
+      "chef-client::service",
+      "chef-client::init_service",
+      "build-essential::default",
+      "build-essential::debian",
+      "vim::default",
+      "logrotate::default",
+      "networking_basic::default",
+      "et_tools::default",
+      "et_tools::vim",
+      "et_monitoring::agent",
+      "newrelic-ng::default",
+      "newrelic-ng::nrsysmond-default",
+      "newrelic-ng::nrsysmond-install",
+      "newrelic-ng::newrelic-repository",
+      "et_datadog::default",
+      "datadog::dd-agent",
+      "datadog::repository",
+      "ntp::default",
+      "et_base::env",
+      "et_lids_api::default",
+      "et_rails_app::default",
+      "et_users::default",
+      "nginx::default",
+      "nginx::package",
+      "nginx::ohai_plugin",
+      "ohai::default",
+      "nginx::commons",
+      "nginx::commons_dir",
+      "nginx::commons_script",
+      "nginx::commons_conf",
+      "nginx::socketproxy"
+    ],
+    "roles": [
+
+    ]
+  }
+}
