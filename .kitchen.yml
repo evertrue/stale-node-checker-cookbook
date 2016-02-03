@@ -19,3 +19,7 @@ suites:
       postfix:
         aliases:
           root: devops@evertrue.com
+      stale-node-checker:
+        ignore:
+          - test-ignored-node
+        alert-email: devops@evertrue.com

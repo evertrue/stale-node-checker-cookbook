@@ -1,0 +1,23 @@
+{
+  "name": "test-stale-node",
+  "chef_environment": "_default",
+  "json_class": "Chef::Node",
+  "automatic": {
+    "ohai_time": 1,
+    "hostname": "test-stale-node",
+    "fqdn": "test-stale-node.local"
+  },
+  "normal": {
+
+  },
+  "chef_type": "node",
+  "default": {
+
+  },
+  "override": {
+
+  },
+  "run_list": [
+
+  ]
+}

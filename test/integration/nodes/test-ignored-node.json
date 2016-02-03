@@ -1,0 +1,23 @@
+{
+  "name": "test-ignored-node",
+  "chef_environment": "_default",
+  "json_class": "Chef::Node",
+  "automatic": {
+    "ohai_time": 1,
+    "hostname": "test-ignored-node",
+    "fqdn": "test-ignored-node.local"
+  },
+  "normal": {
+
+  },
+  "chef_type": "node",
+  "default": {
+
+  },
+  "override": {
+
+  },
+  "run_list": [
+
+  ]
+}
