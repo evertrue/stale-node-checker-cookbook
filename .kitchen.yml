@@ -7,8 +7,6 @@ driver:
 
 provisioner:
   name: chef_zero
-  client_rb:
-    environment: 'stage'
 
 platforms:
   - name: ubuntu-14.04
