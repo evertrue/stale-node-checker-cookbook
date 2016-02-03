@@ -29,12 +29,12 @@ partial_search(
   "ohai_time:[* TO #{threshold_time}]",
   search_args
 ).first.each do |stale_node|
-  unless node['stale-node-checker']['ignore'].include? stale_node['name']
-    notifier "Stale node: #{stale_node['name']}" do
-      to node['stale-node-checker']['alert-email']
-      message 'The node <' + stale_node['name'] + '> has not checked in to ' \
-        "Chef recently.\n\nThe last check-in was " \
-        "#{Time.now.to_i - stale_node['ohai_time'].to_i} seconds ago."
-    end
+  next if node['stale-node-checker']['ignore'].include? stale_node['name']
+
+  notifier "Stale node: #{stale_node['name']}" do
+    to node['stale-node-checker']['alert-email']
+    message 'The node <' + stale_node['name'] + '> has not checked in to ' \
+      "Chef recently.\n\nThe last check-in was " \
+      "#{Time.now.to_i - stale_node['ohai_time'].to_i} seconds ago."
   end
 end
