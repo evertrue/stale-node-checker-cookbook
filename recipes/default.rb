@@ -10,26 +10,27 @@
 include_recipe 'postfix'
 include_recipe 'postfix::aliases'
 
-search_args = {
-  keys: {
-    ohai_time: ['ohai_time'],
-    name: ['name']
-  },
-  rows: node['stale-node-checker']['max-nodes']
-}
-
 threshold_time = Time.now.to_i - (
   node['stale-node-checker']['threshold']['days'] * 86_400 +
   node['stale-node-checker']['threshold']['hours'] * 3_600 +
   node['stale-node-checker']['threshold']['minutes'] * 60
 )
 
-partial_search(
+n = 0
+
+search(
   :node,
   "ohai_time:[* TO #{threshold_time}]",
-  search_args
-).first.each do |stale_node|
+  filter_result: {
+    'name' => ['name'],
+    'ohai_time' => ['ohai_time']
+  }
+).each do |stale_node|
   next if node['stale-node-checker']['ignore'].include? stale_node['name']
+
+  n += 1
+
+  next if n >= node['stale-node-checker']['max-nodes']
 
   notifier "Stale node: #{stale_node['name']}" do
     to node['stale-node-checker']['alert-email']
