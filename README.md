@@ -49,4 +49,4 @@ Include `stale-node-checker` in a wrapper cookbook or role.
 
 ## License and Authors
 
-Author:: EverTrue, Inc. (<eric.herot@evertrue.com>)
+Author:: EverTrue, Inc. (<devops@evertrue.com>)
