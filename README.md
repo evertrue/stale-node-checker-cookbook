@@ -16,10 +16,11 @@ Tested on Ubuntu but isn't particularly platform specific.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['stale-node-checker']['threshold']['days']/['stale-node-checker']['threshold']['hours']/['stale-node-checker']['threshold']['minutes']</tt></td>
+    <td><tt>['stale-node-checker']['threshold']['days']<br>
+    ['stale-node-checker']['threshold']['hours']<br>['stale-node-checker']['threshold']['minutes']</tt></td>
     <td>Integer</td>
     <td>Days/Hours/Minutes that a server has to be out of touch before an alert is triggered</td>
-    <td><tt>0/1/0 days/hours/minutes</tt></td>
+    <td><tt>0/1/0<br>d/h/m</tt></td>
   </tr>
   <tr>
     <td><tt>['stale-node-checker']['max-nodes']</tt></td>
@@ -31,7 +32,7 @@ Tested on Ubuntu but isn't particularly platform specific.
     <td><tt>['stale-node-checker']['ignore']</tt></td>
     <td>Array</td>
     <td>The FULL node name of any nodes to ignore</td>
-    <td><tt>Empty</tt></td>
+    <td>Empty</td>
   </tr>
   <tr>
     <td><tt>['stale-node-checker']['alert-email']</tt></td>
