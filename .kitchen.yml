@@ -1,30 +1,22 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
+  customize:
+    cpus: 4
+    memory: 1536
+
 provisioner:
   name: chef_zero
-  environments_path: '.chef-zero/environments'
-  nodes_path: '.chef-zero/nodes'
-  data_bags_path: '.chef-zero/data_bags'
+  client_rb:
+    environment: 'stage'
 
 platforms:
   - name: ubuntu-12.04
-    driver_config:
-      customize:
-        cpus: 4
-        memory: 1536
-# - name: centos-6.4
 
 suites:
   - name: default
     run_list:
       - recipe[stale-node-checker::default]
-    data_bags_path: ../../server-chef/data_bags
-    encrypted_data_bag_secret_key_path: <%= ENV['HOME'] %>/.chef/encrypted_data_bag_secret
-    provisioner:
-      client_rb:
-        environment: 'stage'
     attributes:
       postfix:
         aliases:
